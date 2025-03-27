@@ -36,3 +36,37 @@ function fetchProductsThen() { //creates fetch function
       handleError(error);
     }
   }
+
+  //Task 4 Display products
+
+  function displayProducts(products) { //Creates displayProducts function
+    const container = document.getElementById('product-container');
+    // Clear previous content 
+    container.innerHTML = '';
+    // Loop through the first 5 products
+    products.slice(0, 5).forEach(product => {
+      // Create a product card element
+      const productCard = document.createElement('div');
+      productCard.className = 'product-card';
+  
+      // Product Name
+      const nameEl = document.createElement('h2');
+      nameEl.textContent = product.fields.name;
+      productCard.appendChild(nameEl);
+  
+      // Product Price
+      const priceEl = document.createElement('p');
+      priceEl.textContent = `Price: $${product.fields.price}`;
+      productCard.appendChild(priceEl);
+  
+      // Product Image
+      const imgEl = document.createElement('img');
+      // Assuming the API returns an array for images; using the first one
+      imgEl.src = product.fields.image[0].url;
+      imgEl.alt = product.fields.name;
+      productCard.appendChild(imgEl);
+  
+      // Append the card to the container
+      container.appendChild(productCard);
+    });
+}
