@@ -70,3 +70,10 @@ function fetchProductsThen() { //creates fetch function
       container.appendChild(productCard);
     });
 }
+
+//Task 5 Reusable Error Handler
+function handleError(error) { //Function to handle errors
+    console.error("An error occurred: " + error.message);
+  }
+
+  
